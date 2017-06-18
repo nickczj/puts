@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask import Flask, send_from_directory, render_template, request, redirect, url_for, send_file
 app = Flask(__name__)
 
 @app.route("/")
@@ -7,8 +7,6 @@ def home():
     
 @app.route("/", methods=['POST'])
 def handle_data(excelfile):
-    text = request.form['text']
-    
     import StringIO
     import requests
     import re
@@ -16,6 +14,7 @@ def handle_data(excelfile):
     import datetime
     from bs4 import BeautifulSoup
 
+    text = request.form['text']
     soup=BeautifulSoup(text,"html.parser")
     # print(soup.prettify())
     # e=open("test3.html",encoding="utf8").read()
@@ -55,11 +54,11 @@ def handle_data(excelfile):
     for i in range(len(amount)):
         sheet['C{}'.format(i+2)]=amount[i]
         
-    wb.save(excelfile)
-    strIO = StringIO.StringIO()
-    strIO.write('test')
-    strIO.seek(0)
-    return send_file(strIO, attachment_filename=filename, as_attachment=True)
+    # wb.save(excelfile)
+    # strIO = StringIO.StringIO()
+    # strIO.write('test')
+    # strIO.seek(0)
+    # return send_file(strIO, attachment_filename=excelfile, as_attachment=True)
     
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
