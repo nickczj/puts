@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, send_file
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,16 +8,15 @@ def home():
 @app.route("/", methods=['POST'])
 def handle_data(excelfile):
     text = request.form['text']
-    processed_text = text.upper()
     
+    import StringIO
     import requests
     import re
     import openpyxl
     import datetime
     from bs4 import BeautifulSoup
 
-    d=processed_text
-    soup=BeautifulSoup(d,"html.parser")
+    soup=BeautifulSoup(text,"html.parser")
     # print(soup.prettify())
     # e=open("test3.html",encoding="utf8").read()
     # soup2=BeautifulSoup(e,"html.parser")
