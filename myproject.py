@@ -6,11 +6,13 @@ def home():
     return render_template("main.html")
     
 @app.route("/", methods=['POST'])
-def handle_data(excelfile):
-    import StringIO
+def handle_data():
+    import io
+    import mimetypes
     import requests
     import re
     import openpyxl
+    from openpyxl.writer.excel import save_virtual_workbook
     import datetime
     from bs4 import BeautifulSoup
 
@@ -53,12 +55,10 @@ def handle_data(excelfile):
         
     for i in range(len(amount)):
         sheet['C{}'.format(i+2)]=amount[i]
-        
-    # wb.save(excelfile)
-    # strIO = StringIO.StringIO()
-    # strIO.write('test')
-    # strIO.seek(0)
-    # return send_file(strIO, attachment_filename=excelfile, as_attachment=True)
+    
+    wb.save('test.xlsx')
+    
+    return send_file("test.xlsx", as_attachment=True)
     
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
