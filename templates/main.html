@@ -48,6 +48,10 @@
 		  <div class="col-sm-10">
 			<div class='container-fluid' align="center" style="min-height:95%; ">
 				{% block body %}{% endblock %}
+                 <form action="." method="POST">
+                 <input type="text" name="text" size="100">
+                 <input type="submit" name="my-form" value="Send">
+                 </form>
 			</div>
 		  </div>
 		</div> 
