@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
     <title>puts</title>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type = "text/css"/>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type = "text/css"/>
 	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -12,13 +13,15 @@
 	<style type="text/css">
 		html,
 		body {
-          font-family: 'PT Sans Narrow', sans-serif;
+		  font-family: 'PT Sans Narrow', sans-serif;
 		  height:100%
 		}
 	</style>
 </head>
 
 <body class="body" style="background-color:#f6f6f6">
+    <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
+
 	<div class="container-fluid" style="min-height:95%; ">
 		<!-- header -->
 		<div class="row">
@@ -31,41 +34,79 @@
 			<div class="col-sm-10">
 				<br>
 				  <center>
-				  <h3>Nicholas Chow</h3>
+				  <h3>puts</h3>
 				  </center>
 			</div>
 		</div><hr>
+		<!-- end header -->
 		
+		<!-- body -->
 		<div class="row">
 		  <!-- sidebar -->
 		  <div class="col-sm-2">
-		  <br>
-
-		  <br>
-		   <!-- Great, til you resize. -->
+		  <br><br>
+		    <!-- Great, til you resize. -->
 			<!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
 			<div class="well bs-sidebar" id="sidebar" style="background-color:#fff">
 			  <ul class="nav nav-pills nav-stacked">
 				<li><a href='/'>Home</a></li>
-				<li><a href='/plot/'>Plot</a></li>
+				<li><a href='/coolstuff/'>Cool Stuff</a></li>
+				<li><a href='/projects/'>Projects</a></li>
 				<li><a href='/about/'>About</a></li>
 			  </ul>
-			</div> <!--well bs-sidebar affix-->
-		  </div> <!--col-sm-2-->
+			</div>
+		  </div>
 		  
 		  <!-- main body -->
 		  <div class="col-sm-10">
 			<div class='container-fluid' align="center" style="min-height:95%; ">
-			  {% block body %}{% endblock %}
+				{% block body %}{% endblock %}
 			</div>
 		  </div>
 		</div> 
+		<!-- end body -->
+		
 	</div>
+	
 	<footer>
 		<div class="container-fluid" style='margin-left:15px'>
-			<p><a href="mailto:nick.chow.zj@gmail.com">Contact</a> | <a href="https://github.com/nickczj">GitHub</a> | <a href="https://www.facebook.com/nick.czj" target="blank">facebook</a> | <a href="https://www.linkedin.com/in/nicholas-chow-7409baa9/" target="blank">LinkedIn</a></p>
-		</div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="copyright" align="center">
+						<span class="copyright">Copyright &copy; Nicholas Chow 2017</span>
+					</div>
+                </div>
+                <div class="col-sm-4">
+                    <ul class="list-inline social-buttons" align="center">
+                        <li><a href="mailto:nick.chow.zj@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+                        </li>
+						<li><a href="https://github.com/nickczj"><i class="fa fa-github fa-2x"></i></a>
+                        </li>
+                        <li><a href="https://www.facebook.com/nick.czj"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/nicholas-chow-7409baa9/"><i class="fa fa-linkedin fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <div class="copyright" align="center">
+						<ul class="list-inline quicklinks">
+							<li><a href="#">Privacy Policy</a>
+							</li>
+							<li><a href="#">Terms of Use</a>
+							</li>
+						</ul>
+					</div>
+                </div>
+            </div>
+        </div>
 	</footer>	
+	
+	<!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.js"></script>
 	
 </body>
 
